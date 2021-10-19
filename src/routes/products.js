@@ -6,20 +6,20 @@ const router = express.Router();
 const productsController = require("../controllers/productsController");
 
 /*** GET ALL PRODUCTS ***/
-router.get("/", productsController.index);
+router.get("/", productsController.index); //LISTO
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/create/", productsController.create);
-router.post("/", productsController.store);
+router.get("/create/", productsController.create); //LISTO
+router.post("/create/", productsController.store); //LISTO
 
 /*** GET ONE PRODUCT ***/
-router.get("/:id/", productsController.detail);
+router.get("/detail/:id", productsController.detail); //LISTO
 
 /*** EDIT ONE PRODUCT ***/
-router.get("/edit/:id/", productsController.edit);
-router.put("/:id", productsController.update);
+router.patch("/edit/:id", productsController.update); //LISTO
+router.get("/edit/:id", productsController.edit); //LISTO
 
 /*** DELETE ONE PRODUCT***/
-router.delete("/:id", productsController.destroy);
+router.delete("/delete/:id", productsController.destroy); //LISTO
 
 module.exports = router;
