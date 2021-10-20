@@ -29,11 +29,13 @@
                 name="name"
                 placeholder="Ej: Zapatillas Reebok"
                 class="form-input"
+                value=" <%= productToEdit.name %>"
               />
             </div>
             <div class="col-12 col-md-6">
               <label for="price" class="form-label">Precio del producto:</label>
               <input
+                value="<%= productToEdit.price %>"
                 type="text"
                 id="price"
                 name="price"
@@ -44,6 +46,7 @@
             <div class="col-12 col-md-6">
               <label for="discount" class="form-label">Descuento:</label>
               <input
+                value="<%= productToEdit.discount %>"
                 type="text"
                 id="discount"
                 name="discount"

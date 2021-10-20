@@ -13,13 +13,24 @@ const productosEnOferta = products.filter((p) => p.category == "in-sale");
 
 const productosVisitados = products.filter((p) => p.category == "visited");
 
+function productoByName(name, productosArray) {
+  return productosArray.find((p) => p.name == name);
+}
+
 const controller = {
   index: (req, res) => {
     res.render("index", { productosEnOferta, productosVisitados, toThousand }); //LISTO
   },
   search: (req, res) => {
-    // Do the magic
-    res.send(products);
+    let keywords = req.query.keywords;
+    let productsToSearch = products.filter((product) =>
+      product.name.toLowerCase().includes(keywords)
+    );
+    res.render("results", {
+      products: productsToSearch,
+      keywords,
+      toThousand,
+    });
   },
 };
 
