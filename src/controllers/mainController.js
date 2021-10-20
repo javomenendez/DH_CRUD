@@ -15,7 +15,7 @@ const productosVisitados = products.filter((p) => p.category == "visited");
 
 const controller = {
   index: (req, res) => {
-    res.render("index", { productosEnOferta, productosVisitados, toThousand });
+    res.render("index", { productosEnOferta, productosVisitados, toThousand }); //LISTO
   },
   search: (req, res) => {
     // Do the magic

@@ -18,7 +18,9 @@
 				<h2 class="products-title">Basado en tu última visita</h2>
 			</div>
 			<!-- Show the "visited" products -->
+			<% let disc = 0 %>
 			<% for(let i=0; i<productosVisitados.length; i++) {%>
+			<% disc=productosVisitados[i].discount>0?productosVisitados[i].price-(productosVisitados[i].price*(productosVisitados[i].discount/100)):productosVisitados[i].price %>	
 			<div class="col-12 col-sm-6 col-lg-3">				
 				<section class="product-box">					
 					<a href="/products/detail/<%= productosVisitados[i].id %>">
@@ -26,7 +28,7 @@
 							<img src="/images/products/<%= productosVisitados[i].image %>" alt="imagen de producto">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= productosVisitados[i].price %></h2>
+							<h2><%= disc %></h2>
 							<span><%= productosVisitados[i].discount %> % OFF</span>
 							<p><%= productosVisitados[i].name %></p>
 							<i class="fas fa-truck"></i>
@@ -49,6 +51,8 @@
 			</div>
 			<!-- Show the "in-sale" products -->
 			<% for(let i=0; i<productosEnOferta.length; i++) {%>
+			<% disc=productosEnOferta[i].discount>0?productosEnOferta[i].price-(productosEnOferta[i].price*(productosEnOferta[i].discount/100)):productosEnOferta[i].price %>	
+
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/products/detail/<%= productosEnOferta[i].id %>">
@@ -56,7 +60,7 @@
 							<img src="/images/products/<%= productosEnOferta[i].image %>" alt="imagen de producto">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= productosEnOferta[i].price %></h2>
+							<h2><%= disc %></h2>
 							<span><%= productosEnOferta[i].discount %> % OFF</span>
 							<p><%= productosEnOferta[i].name %></p>
 							<i class="fas fa-truck"></i>
